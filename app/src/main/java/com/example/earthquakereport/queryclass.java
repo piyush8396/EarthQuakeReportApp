@@ -30,9 +30,13 @@ public final class queryclass {
     static ArrayList<EarthQuake> earthquakes = new ArrayList<>();
 
     public static ArrayList<EarthQuake> extractEarthquakes(String... requestUrl) {
-
+        Log.v(MainActivity.class.getSimpleName(),"in the extractEarthquakes ");
         // Create an empty ArrayList that we can start adding earthquakes to
-
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         URL url = createUrl(requestUrl[0]);
 
         // Perform HTTP request to the URL and receive a JSON response back
@@ -45,6 +49,7 @@ public final class queryclass {
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
         ArrayList<EarthQuake> earthquake = extractFeatureFromJson(jsonResponse);
+
 
         // Return the {@link Event}
         return earthquake;
